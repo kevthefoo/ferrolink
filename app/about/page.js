@@ -62,7 +62,7 @@ export default function About() {
                                             1999
                                         </div>
                                         <div className="text-slate-600">
-                                            Company founded by James Harrison
+                                            Company founded by David Hsu
                                         </div>
                                     </div>
                                 </div>
@@ -175,7 +175,7 @@ export default function About() {
                         <div className="bg-white rounded-xl p-8 shadow-lg text-center">
                             <div className="w-24 h-24 bg-slate-300 rounded-full mx-auto mb-4"></div>
                             <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                                James Harrison
+                                David Hsu
                             </h3>
                             <p className="text-orange-600 font-medium mb-4">
                                 Founder & CEO
@@ -189,7 +189,7 @@ export default function About() {
                         <div className="bg-white rounded-xl p-8 shadow-lg text-center">
                             <div className="w-24 h-24 bg-slate-300 rounded-full mx-auto mb-4"></div>
                             <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                                Sarah Chen
+                                Arthur Yu
                             </h3>
                             <p className="text-orange-600 font-medium mb-4">
                                 VP of Engineering
@@ -203,7 +203,7 @@ export default function About() {
                         <div className="bg-white rounded-xl p-8 shadow-lg text-center">
                             <div className="w-24 h-24 bg-slate-300 rounded-full mx-auto mb-4"></div>
                             <h3 className="text-xl font-semibold text-slate-900 mb-2">
-                                Marcus Rodriguez
+                                Jenny Hsu
                             </h3>
                             <p className="text-orange-600 font-medium mb-4">
                                 Head of Quality

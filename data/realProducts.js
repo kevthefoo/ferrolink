@@ -916,6 +916,27 @@ export function searchProducts(query) {
     return results;
 }
 
+// Featured products for main products page (our most famous tools)
+export const featuredProducts = [
+    { category: "hammers", id: "w-261" }, // Ergonomic Framing Hammer - Top seller
+    { category: "axes", id: "f-26" }, // Professional Felling Axe - Flagship product
+    { category: "hammers", id: "f-28" }, // Heavy-Duty Sledgehammer - Popular choice
+    { category: "gardening-tools", id: "cr-6005" }, // Professional Pruning Shears - Award winner
+    { category: "axes", id: "s-240" }, // Tactical Hatchet - Customer favorite
+    { category: "hammers", id: "f-11" }, // Ball Peen Hammer - Classic tool
+    { category: "gardening-tools", id: "cs-01" }, // Heavy-Duty Garden Spade - Professional choice
+    { category: "other-tools", id: "d-210" }, // Precision Caliper - High-tech tool
+];
+
+// Get featured products with full details
+export function getFeaturedProducts() {
+    return featuredProducts
+        .map(({ category, id }) => {
+            return getProductById(category, id);
+        })
+        .filter((product) => product !== null);
+}
+
 // Get all products as flat array
 export function getAllProducts() {
     const allProducts = [];
