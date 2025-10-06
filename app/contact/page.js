@@ -179,10 +179,10 @@ export default function Contact() {
                                             Phone
                                         </h3>
                                         <p className="text-slate-600">
-                                            1-800-FERRO-LINK (1-800-337-7654)
+                                            +886 47766093
                                         </p>
                                         <p className="text-slate-500 text-sm">
-                                            Monday - Friday, 8AM - 6PM EST
+                                            Monday - Friday, 8AM - 6PM
                                         </p>
                                     </div>
                                 </div>
@@ -208,10 +208,10 @@ export default function Contact() {
                                             Email
                                         </h3>
                                         <p className="text-slate-600">
-                                            sales@ferrolinktools.com
+                                            sales@ferrolink.co
                                         </p>
                                         <p className="text-slate-500 text-sm">
-                                            We respond within 4 hours
+                                            We respond within 1 day
                                         </p>
                                     </div>
                                 </div>
@@ -243,56 +243,12 @@ export default function Contact() {
                                             Address
                                         </h3>
                                         <p className="text-slate-600">
-                                            FerroLink Tools Manufacturing
-                                            <br />
-                                            2847 Industrial Parkway
-                                            <br />
-                                            Tool City, TC 12345
-                                            <br />
-                                            United States
+                                            No. 38, Sec. 4, Fu 3rd Rd., Fuxing
+                                            Township, Changhua County 506014,
+                                            Taiwan <br />
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        {/* Business Hours */}
-                        <div className="bg-white rounded-2xl p-8 shadow-lg">
-                            <h2 className="text-2xl font-bold text-slate-900 mb-6">
-                                Business Hours
-                            </h2>
-                            <div className="space-y-3">
-                                <div className="flex justify-between">
-                                    <span className="text-slate-600">
-                                        Monday - Friday
-                                    </span>
-                                    <span className="font-semibold text-slate-900">
-                                        8:00 AM - 6:00 PM EST
-                                    </span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-slate-600">
-                                        Saturday
-                                    </span>
-                                    <span className="font-semibold text-slate-900">
-                                        9:00 AM - 3:00 PM EST
-                                    </span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-slate-600">
-                                        Sunday
-                                    </span>
-                                    <span className="font-semibold text-slate-900">
-                                        Closed
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="mt-6 p-4 bg-orange-50 rounded-lg">
-                                <p className="text-sm text-orange-800">
-                                    <strong>Emergency Support:</strong> For
-                                    urgent technical support, call our 24/7
-                                    emergency line at 1-800-URGENT-1
-                                </p>
                             </div>
                         </div>
 
@@ -369,38 +325,15 @@ export default function Contact() {
                             Visit Our Facility
                         </h2>
                         <div className="bg-slate-200 h-96 rounded-xl flex items-center justify-center">
-                            <div className="text-center text-slate-600">
-                                <svg
-                                    className="w-16 h-16 mx-auto mb-4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                                    />
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                                    />
-                                </svg>
-                                <p className="text-lg font-medium">
-                                    Interactive Map
-                                </p>
-                                <p>
-                                    2847 Industrial Parkway, Tool City, TC 12345
-                                </p>
-                                <p className="text-sm mt-2">
-                                    Facility tours available by appointment
-                                    <br />
-                                    Call ahead to schedule your visit
-                                </p>
-                            </div>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196107.04521537392!2d120.32786123197343!3d24.033327734950394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34694f514896288f%3A0x9ec50566023e74d0!2z6YeR5ZKM6IyC5bel5qWt6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1sen!2sau!4v1759752835462!5m2!1sen!2sau"
+                                allowFullScreen
+                                lazy
+                                width="100%"
+                                height="100%"
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
                         </div>
                     </div>
                 </section>

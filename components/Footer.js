@@ -66,9 +66,10 @@ export default function Footer() {
                             <li>
                                 <Link
                                     href="/products#garden-tools"
-                                    className="hover:text-white transition-colors"
+                                    className="hover:text-orange-400 transition-colors flex items-center group"
                                 >
-                                    Garden Tools
+                                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 group-hover:bg-orange-400 transition-colors"></span>
+                                    GARDEN TOOLS
                                 </Link>
                             </li>
                         </ul>

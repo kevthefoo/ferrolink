@@ -2,6 +2,7 @@ import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import { categories, getProductsByCategory } from "../data/realProducts";
 
 export default function Home() {
     return (
@@ -79,180 +80,77 @@ export default function Home() {
                             environments.
                         </p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {/* CNC Tools */}
-                        <Link
-                            href="/products/carbide-end-mill-4flute"
-                            className="group bg-gray-900 border border-gray-700 p-8 rounded-xl hover:border-orange-500 transition-all duration-300 block relative overflow-hidden"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-br from-orange-600/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div className="relative z-10">
-                                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                    <span className="text-3xl text-white">
-                                        ⚙️
-                                    </span>
-                                </div>
-                                <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-orange-400 transition-colors">
-                                    CNC TOOLS
-                                </h4>
-                                <p className="text-gray-400 mb-6 leading-relaxed">
-                                    Precision Computer Numerical Control tools
-                                    for machining and manufacturing
-                                    applications.
-                                </p>
-                                <ul className="text-sm text-gray-500 space-y-2 mb-6">
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        End Mills
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Drill Bits
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Cutting Tools
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Tool Holders
-                                    </li>
-                                </ul>
-                                <div className="text-sm text-orange-400 font-bold group-hover:text-orange-300 transition-colors">
-                                    EXPLORE 360° VIEW →
-                                </div>
-                            </div>
-                        </Link>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+                        {Object.entries(categories).map(
+                            ([categoryId, category]) => {
+                                // Get a sample product from each category for display
+                                const categoryProducts =
+                                    getProductsByCategory(categoryId);
+                                const sampleProduct =
+                                    Object.values(categoryProducts)[0];
 
-                        {/* Hammers */}
-                        <Link
-                            href="/products/professional-claw-hammer"
-                            className="group bg-gray-900 border border-gray-700 p-8 rounded-xl hover:border-orange-500 transition-all duration-300 block relative overflow-hidden"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-br from-orange-600/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div className="relative z-10">
-                                <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-red-700 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                    <span className="text-3xl text-white">
-                                        🔨
-                                    </span>
-                                </div>
-                                <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-orange-400 transition-colors">
-                                    HAMMERS
-                                </h4>
-                                <p className="text-gray-400 mb-6 leading-relaxed">
-                                    Professional hammers built for durability
-                                    and precision in construction and
-                                    metalworking.
-                                </p>
-                                <ul className="text-sm text-gray-500 space-y-2 mb-6">
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Claw Hammers
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Ball Peen Hammers
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Sledgehammers
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Specialty Hammers
-                                    </li>
-                                </ul>
-                                <div className="text-sm text-orange-400 font-bold group-hover:text-orange-300 transition-colors">
-                                    EXPLORE 360° VIEW →
-                                </div>
-                            </div>
-                        </Link>
+                                return (
+                                    <Link
+                                        key={categoryId}
+                                        href={
+                                            sampleProduct
+                                                ? `/products/${sampleProduct.category}/${sampleProduct.id}`
+                                                : "#"
+                                        }
+                                        className="group bg-gray-900 border border-gray-700 p-6 rounded-xl hover:border-orange-500 transition-all duration-300 block relative overflow-hidden"
+                                    >
+                                        <div className="absolute inset-0 bg-gradient-to-br from-orange-600/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                        <div className="relative z-10">
+                                            {/* Product Image */}
+                                            <div className="w-full h-32 mb-4 rounded-lg overflow-hidden bg-gray-800 flex items-center justify-center">
+                                                {sampleProduct &&
+                                                sampleProduct.mainImage ? (
+                                                    <Image
+                                                        src={
+                                                            sampleProduct.mainImage
+                                                        }
+                                                        alt={sampleProduct.name}
+                                                        width={120}
+                                                        height={120}
+                                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                                        unoptimized
+                                                    />
+                                                ) : (
+                                                    <div
+                                                        className={`w-16 h-16 bg-gradient-to-br ${category.color} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform`}
+                                                    >
+                                                        <span className="text-2xl text-white">
+                                                            {category.emoji}
+                                                        </span>
+                                                    </div>
+                                                )}
+                                            </div>
 
-                        {/* Axes */}
-                        <Link
-                            href="/products/felling-axe-36inch"
-                            className="group bg-gray-900 border border-gray-700 p-8 rounded-xl hover:border-orange-500 transition-all duration-300 block relative overflow-hidden"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-br from-orange-600/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div className="relative z-10">
-                                <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-700 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                    <span className="text-3xl text-white">
-                                        🪓
-                                    </span>
-                                </div>
-                                <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-orange-400 transition-colors">
-                                    AXES
-                                </h4>
-                                <p className="text-gray-400 mb-6 leading-relaxed">
-                                    Heavy-duty axes designed for forestry,
-                                    construction, and outdoor applications.
-                                </p>
-                                <ul className="text-sm text-gray-500 space-y-2 mb-6">
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Felling Axes
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Splitting Axes
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Hatchets
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Tactical Axes
-                                    </li>
-                                </ul>
-                                <div className="text-sm text-orange-400 font-bold group-hover:text-orange-300 transition-colors">
-                                    EXPLORE 360° VIEW →
-                                </div>
-                            </div>
-                        </Link>
+                                            <h4 className="text-xl font-bold text-white mb-3 group-hover:text-orange-400 transition-colors uppercase">
+                                                {category.name}
+                                            </h4>
+                                            <p className="text-gray-400 mb-4 leading-relaxed text-sm">
+                                                {category.description}
+                                            </p>
 
-                        {/* Garden Tools */}
-                        <Link
-                            href="/products/professional-shovel"
-                            className="group bg-gray-900 border border-gray-700 p-8 rounded-xl hover:border-orange-500 transition-all duration-300 block relative overflow-hidden"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-br from-orange-600/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div className="relative z-10">
-                                <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-700 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                    <span className="text-3xl text-white">
-                                        🌱
-                                    </span>
-                                </div>
-                                <h4 className="text-2xl font-bold text-white mb-4 group-hover:text-orange-400 transition-colors">
-                                    GARDEN TOOLS
-                                </h4>
-                                <p className="text-gray-400 mb-6 leading-relaxed">
-                                    Essential gardening tools for landscaping
-                                    professionals and gardening enthusiasts.
-                                </p>
-                                <ul className="text-sm text-gray-500 space-y-2 mb-6">
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Shovels & Spades
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Pruning Shears
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Garden Hoes
-                                    </li>
-                                    <li className="flex items-center">
-                                        <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                                        Cultivators
-                                    </li>
-                                </ul>
-                                <div className="text-sm text-orange-400 font-bold group-hover:text-orange-300 transition-colors">
-                                    EXPLORE 360° VIEW →
-                                </div>
-                            </div>
-                        </Link>
+                                            {/* Product count */}
+                                            <div className="text-sm text-gray-500 mb-4">
+                                                {
+                                                    Object.keys(
+                                                        categoryProducts
+                                                    ).length
+                                                }{" "}
+                                                products available
+                                            </div>
+
+                                            <div className="text-sm text-orange-400 font-bold group-hover:text-orange-300 transition-colors">
+                                                EXPLORE PRODUCTS →
+                                            </div>
+                                        </div>
+                                    </Link>
+                                );
+                            }
+                        )}
                     </div>
                 </div>
             </section>
@@ -419,9 +317,7 @@ export default function Home() {
                             <h4 className="font-semibold text-slate-900 mb-2">
                                 Email
                             </h4>
-                            <p className="text-slate-600">
-                                sales@ferrolinktools.com
-                            </p>
+                            <p className="text-slate-600">sales@ferrolink.co</p>
                         </div>
 
                         <div className="text-center">
