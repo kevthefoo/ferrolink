@@ -131,14 +131,24 @@ export default function Product360Viewer({
                 onTouchEnd={handleTouchEnd}
             >
                 {isLoading && (
-                    <div className="absolute inset-0 bg-slate-100 flex items-center justify-center z-10">
+                    <div className="absolute inset-0 bg-gray-900 flex items-center justify-center z-10 rounded-xl">
                         <div className="text-center">
-                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600 mx-auto mb-4"></div>
-                            <p className="text-slate-600">
-                                Loading 360° view...
+                            <div className="animate-spin rounded-full h-16 w-16 border-4 border-gray-700 border-t-orange-500 mx-auto mb-6"></div>
+                            <p className="text-white font-bold text-lg mb-2">
+                                LOADING 360° VIEW
                             </p>
-                            <p className="text-sm text-slate-500">
-                                {loadedImages} / {images.length} images loaded
+                            <div className="w-48 bg-gray-700 rounded-full h-2 mb-2">
+                                <div
+                                    className="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full transition-all duration-300"
+                                    style={{
+                                        width: `${
+                                            (loadedImages / images.length) * 100
+                                        }%`,
+                                    }}
+                                ></div>
+                            </div>
+                            <p className="text-sm text-gray-400 font-semibold">
+                                {loadedImages} / {images.length} IMAGES LOADED
                             </p>
                         </div>
                     </div>
@@ -157,55 +167,109 @@ export default function Product360Viewer({
                 />
 
                 {/* Rotation indicator */}
-                <div className="absolute top-4 left-4 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm">
+                <div className="absolute top-4 left-4 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-lg">
                     {currentImageIndex + 1} / {images.length}
+                </div>
+
+                {/* Progress arc indicator */}
+                <div className="absolute top-4 right-4">
+                    <div className="relative w-12 h-12">
+                        <svg
+                            className="w-12 h-12 transform -rotate-90"
+                            viewBox="0 0 48 48"
+                        >
+                            <circle
+                                cx="24"
+                                cy="24"
+                                r="20"
+                                stroke="rgba(255,255,255,0.2)"
+                                strokeWidth="4"
+                                fill="none"
+                            />
+                            <circle
+                                cx="24"
+                                cy="24"
+                                r="20"
+                                stroke="url(#gradient)"
+                                strokeWidth="4"
+                                fill="none"
+                                strokeLinecap="round"
+                                strokeDasharray={`${
+                                    (currentImageIndex / (images.length - 1)) *
+                                    125.6
+                                } 125.6`}
+                            />
+                            <defs>
+                                <linearGradient
+                                    id="gradient"
+                                    x1="0%"
+                                    y1="0%"
+                                    x2="100%"
+                                    y2="0%"
+                                >
+                                    <stop offset="0%" stopColor="#ff6b35" />
+                                    <stop offset="100%" stopColor="#e74c3c" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">
+                                360°
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Instructions overlay */}
                 {!isDragging && (
-                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-white px-4 py-2 rounded-full text-sm opacity-75 hover:opacity-100 transition-opacity">
-                        <span className="hidden sm:inline">
-                            Drag to rotate •{" "}
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-900/90 border border-gray-700 text-white px-6 py-3 rounded-lg text-sm font-semibold opacity-90 hover:opacity-100 transition-all duration-300 backdrop-blur-sm">
+                        <span className="hidden sm:inline text-orange-400">
+                            DRAG TO ROTATE •
                         </span>
-                        <span className="sm:hidden">Swipe to rotate • </span>
-                        360° View
+                        <span className="sm:hidden text-orange-400">
+                            SWIPE TO ROTATE •{" "}
+                        </span>
+                        <span className="text-white">360° INDUSTRIAL VIEW</span>
                     </div>
                 )}
             </div>
 
             {/* Thumbnail navigation */}
-            <div className="mt-4 flex justify-center">
-                <div className="flex space-x-2 overflow-x-auto max-w-full">
+            <div className="mt-6 flex justify-center">
+                <div className="flex space-x-3 overflow-x-auto max-w-full p-2 bg-gray-800 rounded-xl">
                     {images
                         .slice(0, Math.min(12, images.length))
                         .map((image, index) => (
                             <button
                                 key={index}
                                 onClick={() => setCurrentImageIndex(index)}
-                                className={`flex-shrink-0 w-12 h-12 rounded-md overflow-hidden border-2 transition-all ${
+                                className={`group flex-shrink-0 w-14 h-14 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
                                     currentImageIndex === index
-                                        ? "border-orange-600 ring-2 ring-orange-200"
-                                        : "border-slate-200 hover:border-slate-300"
+                                        ? "border-orange-500 ring-2 ring-orange-400/50 shadow-lg scale-110"
+                                        : "border-gray-600 hover:border-orange-400 hover:scale-105"
                                 }`}
                             >
                                 <Image
                                     src={image}
-                                    alt={`Thumbnail ${index + 1}`}
-                                    className="w-full h-full object-cover"
+                                    alt={`View ${index + 1}`}
+                                    className="w-full h-full object-cover group-hover:brightness-110 transition-all"
                                     draggable={false}
-                                    width={48}
-                                    height={48}
+                                    width={56}
+                                    height={56}
                                     unoptimized
                                 />
+                                {currentImageIndex === index && (
+                                    <div className="absolute inset-0 bg-orange-500/20 rounded-lg"></div>
+                                )}
                             </button>
                         ))}
                 </div>
             </div>
 
             {/* Progress bar */}
-            <div className="mt-2 w-full bg-slate-200 rounded-full h-1">
+            <div className="mt-4 w-full bg-gray-700 rounded-full h-2 shadow-inner">
                 <div
-                    className="bg-orange-600 h-1 rounded-full transition-all duration-200"
+                    className="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full transition-all duration-300 shadow-lg"
                     style={{
                         width: `${
                             ((currentImageIndex + 1) / images.length) * 100

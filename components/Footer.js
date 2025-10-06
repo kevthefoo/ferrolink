@@ -2,47 +2,65 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="bg-slate-900 text-white py-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <footer className="bg-black border-t-2 border-gray-800 text-white py-16 relative">
+            <div className="absolute inset-0 metal-texture opacity-20"></div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
                     <div>
-                        <h4 className="text-xl font-bold mb-4">
-                            FerroLink Tools
-                        </h4>
-                        <p className="text-slate-300 mb-4">
-                            Professional hand tools and CNC solutions for
-                            demanding applications.
+                        <div className="flex items-center space-x-3 mb-6">
+                            <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
+                                <span className="text-white font-bold text-2xl">
+                                    F
+                                </span>
+                            </div>
+                            <div>
+                                <h4 className="text-2xl font-bold text-white">
+                                    FERROLINK
+                                </h4>
+                                <div className="text-xs text-orange-400 font-semibold tracking-wider">
+                                    INDUSTRIAL TOOLS
+                                </div>
+                            </div>
+                        </div>
+                        <p className="text-gray-400 mb-6 leading-relaxed">
+                            Engineering precision tools for professionals who
+                            demand uncompromising quality and reliability.
                         </p>
-                        <p className="text-slate-400 text-sm">
-                            © 2025 FerroLink Tools. All rights reserved.
+                        <p className="text-gray-500 text-sm font-semibold">
+                            © 2025 FERROLINK TOOLS. ALL RIGHTS RESERVED.
                         </p>
                     </div>
 
                     <div>
-                        <h5 className="font-semibold mb-3">Products</h5>
-                        <ul className="space-y-2 text-slate-300">
+                        <h5 className="font-bold text-lg mb-6 text-orange-400 tracking-wider">
+                            PRODUCT LINES
+                        </h5>
+                        <ul className="space-y-3 text-gray-400">
                             <li>
                                 <Link
                                     href="/products#cnc-tools"
-                                    className="hover:text-white transition-colors"
+                                    className="hover:text-orange-400 transition-colors flex items-center group"
                                 >
-                                    CNC Tools
+                                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 group-hover:bg-orange-400 transition-colors"></span>
+                                    CNC TOOLS
                                 </Link>
                             </li>
                             <li>
                                 <Link
                                     href="/products#hammers"
-                                    className="hover:text-white transition-colors"
+                                    className="hover:text-orange-400 transition-colors flex items-center group"
                                 >
-                                    Hammers
+                                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 group-hover:bg-orange-400 transition-colors"></span>
+                                    HAMMERS
                                 </Link>
                             </li>
                             <li>
                                 <Link
                                     href="/products#axes"
-                                    className="hover:text-white transition-colors"
+                                    className="hover:text-orange-400 transition-colors flex items-center group"
                                 >
-                                    Axes
+                                    <span className="w-2 h-2 bg-orange-500 rounded-full mr-3 group-hover:bg-orange-400 transition-colors"></span>
+                                    AXES
                                 </Link>
                             </li>
                             <li>
