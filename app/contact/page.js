@@ -328,7 +328,6 @@ export default function Contact() {
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196107.04521537392!2d120.32786123197343!3d24.033327734950394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34694f514896288f%3A0x9ec50566023e74d0!2z6YeR5ZKM6IyC5bel5qWt6IKh5Lu95pyJ6ZmQ5YWs5Y-4!5e0!3m2!1sen!2sau!4v1759752835462!5m2!1sen!2sau"
                                 allowFullScreen
-                                lazy
                                 width="100%"
                                 height="100%"
                                 loading="lazy"

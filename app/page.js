@@ -389,6 +389,115 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* Newsletter Subscription Section */}
+            <section className="py-16 bg-gradient-to-r from-gray-900 via-black to-gray-900 relative overflow-hidden">
+                {/* Industrial Background Pattern */}
+                <div className="absolute inset-0 opacity-5">
+                    <div
+                        className="absolute inset-0"
+                        style={{
+                            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")`,
+                        }}
+                    ></div>
+                </div>
+
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                    <div className="mb-8">
+                        <span className="inline-block px-4 py-2 bg-orange-600/20 text-orange-400 text-sm font-bold rounded-full mb-6 border border-orange-600/30 uppercase tracking-wider">
+                            🔔 STAY UPDATED
+                        </span>
+                    </div>
+
+                    <h3 className="text-4xl font-bold text-white mb-4">
+                        SUBSCRIBE TO OUR NEWSLETTER
+                    </h3>
+                    <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto mb-6"></div>
+
+                    <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+                        Get the latest updates on new tool releases, industry
+                        insights, exclusive promotions, and professional tips
+                        delivered directly to your inbox.
+                    </p>
+
+                    {/* Newsletter Form */}
+                    <form className="max-w-md mx-auto mb-8">
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <input
+                                type="email"
+                                placeholder="Enter your email address"
+                                required
+                                className="flex-1 px-6 py-4 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 backdrop-blur-sm"
+                            />
+                            <button
+                                type="submit"
+                                className="group bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-4 rounded-lg font-bold hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 whitespace-nowrap"
+                            >
+                                <span className="flex items-center justify-center gap-2">
+                                    SUBSCRIBE NOW
+                                    <svg
+                                        className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M13 7l5 5m0 0l-5 5m5-5H6"
+                                        />
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+
+                    {/* Newsletter Benefits */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div className="flex items-center justify-center text-gray-300">
+                            <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center mr-3">
+                                <span className="text-white text-sm font-bold">
+                                    🆕
+                                </span>
+                            </div>
+                            <span className="text-sm">
+                                New Product Releases
+                            </span>
+                        </div>
+                        <div className="flex items-center justify-center text-gray-300">
+                            <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center mr-3">
+                                <span className="text-white text-sm font-bold">
+                                    💰
+                                </span>
+                            </div>
+                            <span className="text-sm">
+                                Exclusive Promotions
+                            </span>
+                        </div>
+                        <div className="flex items-center justify-center text-gray-300">
+                            <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center mr-3">
+                                <span className="text-white text-sm font-bold">
+                                    💡
+                                </span>
+                            </div>
+                            <span className="text-sm">Professional Tips</span>
+                        </div>
+                    </div>
+
+                    {/* Trust Indicators */}
+                    <div className="text-center text-gray-400 text-sm">
+                        <p className="mb-2">
+                            ✓ No spam, ever • ✓ Unsubscribe anytime • ✓ 25,000+
+                            subscribers
+                        </p>
+                        <p className="text-xs">
+                            We respect your privacy and never share your
+                            information
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             <Footer />
         </div>
     );
