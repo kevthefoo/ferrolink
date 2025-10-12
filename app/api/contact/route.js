@@ -5,17 +5,19 @@ export async function POST(request) {
     // Handle FormData instead of JSON since the form submits as FormData
     const formData = await request.formData();
 
-    // Extract form fields
-    const firstName = formData.get("firstName");
-    const lastName = formData.get("lastName");
-    const email = formData.get("email");
-    const phone = formData.get("phone");
-    const company = formData.get("conpanyName"); // Note: keeping the typo to match your form
-    const productInterest = formData.get("productInterest");
-    const message = formData.get("message");
-    const newsletter = formData.get("newsletter");
-    
-    const SUPPORT_EMAIL = process.env.SUPPORT_EMAIL
+    // Extract form fields with default values
+
+    const firstName = formData.get("firstName") || "";
+    const lastName = formData.get("lastName") || "";
+    const email = formData.get("email") || "";
+    const phone = formData.get("phone") || "Not provided";
+    const company = formData.get("conpanyName") || "Not specified";
+    const productInterest =
+      formData.get("productInterest") || "General inquiry";
+    const message = formData.get("message") || "";
+    const newsletter = formData.get("newsletter") || "off";
+
+    const SUPPORT_EMAIL = process.env.SUPPORT_EMAIL;
     // Configure email service - using Gmail
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
