@@ -1,9 +1,10 @@
 import Image from "next/image";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import QuoteForm from "../components/QuoteForm";
 import Link from "next/link";
-import { categories, getProductsByCategory } from "../data/realProducts";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import QuoteForm from "@/components/QuoteForm";
+
+import { categories, getProductsByCategory } from "@/data/realProducts";
 
 export default function Home() {
   return (
