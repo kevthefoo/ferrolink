@@ -8,16 +8,18 @@ export default function Header({ currentPage = "home" }) {
         <div className="flex items-center justify-between py-6">
           <div className="flex items-center space-x-4">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-orange-500 to-red-600">
-              <span className="text-xl font-bold text-white">F</span>
+              <span className="text-xl font-bold text-white select-none">
+                F
+              </span>
             </div>
             <div>
               <Link
                 href="/"
-                className="text-3xl font-bold text-white transition-colors hover:text-orange-400"
+                className="text-3xl font-bold text-white transition-colors select-none hover:text-orange-400"
               >
                 FERROLINK
               </Link>
-              <div className="text-xs font-semibold tracking-wider text-orange-400">
+              <div className="text-xs font-semibold tracking-wider text-orange-400 select-none">
                 INDUSTRIAL TOOLS
               </div>
             </div>
@@ -25,7 +27,7 @@ export default function Header({ currentPage = "home" }) {
           <nav className="hidden space-x-8 md:flex">
             <Link
               href="/"
-              className={`group relative text-sm font-bold tracking-wide transition-colors ${
+              className={`group relative text-sm font-bold tracking-wide transition-colors select-none ${
                 currentPage === "home"
                   ? "text-orange-400"
                   : "text-gray-300 hover:text-orange-400"
@@ -38,7 +40,7 @@ export default function Header({ currentPage = "home" }) {
             </Link>
             <Link
               href="/products"
-              className={`group relative text-sm font-bold tracking-wide transition-colors ${
+              className={`group relative text-sm font-bold tracking-wide transition-colors select-none ${
                 currentPage === "products"
                   ? "text-orange-400"
                   : "text-gray-300 hover:text-orange-400"
@@ -51,7 +53,7 @@ export default function Header({ currentPage = "home" }) {
             </Link>
             <Link
               href="/about"
-              className={`group relative text-sm font-bold tracking-wide transition-colors ${
+              className={`group relative text-sm font-bold tracking-wide transition-colors select-none ${
                 currentPage === "about"
                   ? "text-orange-400"
                   : "text-gray-300 hover:text-orange-400"
@@ -64,7 +66,7 @@ export default function Header({ currentPage = "home" }) {
             </Link>
             <Link
               href="/contact"
-              className={`group relative text-sm font-bold tracking-wide transition-colors ${
+              className={`group relative text-sm font-bold tracking-wide transition-colors select-none ${
                 currentPage === "contact"
                   ? "text-orange-400"
                   : "text-gray-300 hover:text-orange-400"
