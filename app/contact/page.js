@@ -20,17 +20,18 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           {/* Contact Form */}
-          <div className="rounded-2xl bg-white p-8 shadow-lg">
+          <div className="rounded-2xl bg-white p-8 text-black shadow-lg">
             <h2 className="mb-6 text-2xl font-bold text-slate-900">
               Send us a Message
             </h2>
-            <form className="space-y-6">
+            <form className="space-y-6" action="/api/contact" method="post">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-2 block text-sm font-medium text-slate-700">
                     First Name *
                   </label>
                   <input
+                    name="firstName"
                     type="text"
                     required
                     className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none"
@@ -42,6 +43,7 @@ export default function Contact() {
                     Last Name *
                   </label>
                   <input
+                    name="lastName"
                     type="text"
                     required
                     className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none"
@@ -55,6 +57,7 @@ export default function Contact() {
                   Email Address *
                 </label>
                 <input
+                  name="email"
                   type="email"
                   required
                   className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none"
@@ -67,6 +70,7 @@ export default function Contact() {
                   Phone Number
                 </label>
                 <input
+                  name="phone"
                   type="tel"
                   className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none"
                   placeholder="(555) 123-4567"
@@ -78,6 +82,7 @@ export default function Contact() {
                   Company Name
                 </label>
                 <input
+                  name="company"
                   type="text"
                   className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none"
                   placeholder="Your Company"
@@ -89,6 +94,7 @@ export default function Contact() {
                   Product Interest *
                 </label>
                 <select
+                  name="productInterest"
                   required
                   className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none"
                 >
@@ -108,6 +114,7 @@ export default function Contact() {
                   Message *
                 </label>
                 <textarea
+                  name="message"
                   rows="5"
                   required
                   className="w-full resize-none rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none"
@@ -117,6 +124,7 @@ export default function Contact() {
 
               <div className="flex items-start">
                 <input
+                name="newsletter"
                   type="checkbox"
                   id="newsletter"
                   className="mt-1 h-4 w-4 rounded border-slate-300 text-orange-600 focus:ring-orange-500"
@@ -132,7 +140,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full rounded-lg bg-orange-600 py-3 font-semibold text-white transition-colors hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:outline-none"
+                className="w-full cursor-pointer rounded-lg bg-orange-600 py-3 font-semibold text-white transition-colors hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:outline-none"
               >
                 Send Message
               </button>

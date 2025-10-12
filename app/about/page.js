@@ -13,7 +13,7 @@ export default function About() {
             About FerroLink Tools
           </h1>
           <p className="mx-auto max-w-3xl text-xl text-slate-600">
-            For over 25 years, we&apos;ve been crafting premium hand tools that
+            For over 60 years, we&apos;ve been crafting premium hand tools that
             professionals and enthusiasts trust for their most demanding
             projects.
           </p>

@@ -149,7 +149,7 @@ export default function Products() {
             >
               REQUEST CUSTOM QUOTE
             </Link>
-            <button className="rounded-lg border-2 border-white px-8 py-3 font-bold text-white transition-colors hover:bg-white hover:text-orange-600">
+            <button className="cursor-pointer rounded-lg border-2 border-white px-8 py-3 font-bold text-white transition-colors hover:bg-white hover:text-orange-600">
               DOWNLOAD CATALOG
             </button>
           </div>
