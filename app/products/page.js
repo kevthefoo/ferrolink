@@ -3,170 +3,160 @@ import Image from "next/image";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import {
-    categories,
-    getFeaturedProducts,
-    getProductsByCategory,
+  categories,
+  getFeaturedProducts,
+  getProductsByCategory,
 } from "../../data/realProducts";
 
 export default function Products() {
-    return (
-        <div className="min-h-screen bg-gray-900">
-            <Header currentPage="products" />
+  return (
+    <div className="min-h-screen bg-gray-900">
+      <Header currentPage="products" />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-white mb-4">
-                        FEATURED PROFESSIONAL TOOLS
-                    </h1>
-                    <div className="w-32 h-1 bg-gradient-to-r from-orange-500 to-red-500 mx-auto mb-6"></div>
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                        Discover our most popular and award-winning professional
-                        tools. These industry-leading products represent the
-                        pinnacle of engineering excellence and customer
-                        satisfaction.
-                    </p>
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 text-4xl font-bold text-white">
+            FEATURED PROFESSIONAL TOOLS
+          </h1>
+          <div className="mx-auto mb-6 h-1 w-32 bg-gradient-to-r from-orange-500 to-red-500"></div>
+          <p className="mx-auto max-w-3xl text-xl text-gray-300">
+            Discover our most popular and award-winning professional tools.
+            These industry-leading products represent the pinnacle of
+            engineering excellence and customer satisfaction.
+          </p>
+        </div>
+
+        {/* Browse by Category Section */}
+        <section className="mb-16">
+          <div className="mb-8 text-center">
+            <h2 className="mb-4 text-2xl font-bold text-white">
+              BROWSE BY CATEGORY
+            </h2>
+            <p className="mx-auto max-w-2xl text-gray-400">
+              Explore our complete product lines organized by application and
+              tool type
+            </p>
+          </div>
+
+          <div className="mb-12 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
+            {Object.entries(categories).map(([categoryId, category]) => {
+              const categoryProducts = getProductsByCategory(categoryId);
+              const productCount = Object.keys(categoryProducts).length;
+
+              return (
+                <Link
+                  key={categoryId}
+                  href={`/category/${categoryId}`}
+                  className="group rounded-xl border border-gray-700 bg-gray-800 p-6 text-center transition-all duration-300 hover:border-orange-500"
+                >
+                  <div
+                    className={`h-16 w-16 bg-gradient-to-br ${category.color} mx-auto mb-4 flex items-center justify-center rounded-lg transition-transform group-hover:scale-110`}
+                  >
+                    <span className="text-2xl text-white">
+                      {category.emoji}
+                    </span>
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold text-white transition-colors group-hover:text-orange-400">
+                    {category.name}
+                  </h3>
+                  <p className="mb-3 text-sm text-gray-400">
+                    {productCount} products
+                  </p>
+                  <div className="text-sm font-bold text-orange-400 transition-colors group-hover:text-orange-300">
+                    VIEW ALL →
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Featured Products Grid */}
+        <section className="mb-16">
+          <div className="mb-8 text-center">
+            <h2 className="mb-4 text-2xl font-bold text-white">
+              OUR MOST POPULAR TOOLS
+            </h2>
+            <p className="mx-auto max-w-2xl text-gray-400">
+              Top-rated tools chosen by professionals worldwide for their
+              exceptional performance and reliability
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {getFeaturedProducts().map((product) => (
+              <Link
+                key={`${product.category}-${product.id}`}
+                href={`/products/${product.category}/${product.id}`}
+                className="group relative rounded-xl border border-gray-700 bg-gray-800 p-6 transition-all duration-300 hover:border-orange-500 hover:shadow-xl"
+              >
+                {/* Featured Badge */}
+                <div className="absolute top-4 right-4 z-10 rounded-full bg-orange-600 px-2 py-1 text-xs font-bold text-white">
+                  FEATURED
                 </div>
 
-                {/* Browse by Category Section */}
-                <section className="mb-16">
-                    <div className="text-center mb-8">
-                        <h2 className="text-2xl font-bold text-white mb-4">
-                            BROWSE BY CATEGORY
-                        </h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">
-                            Explore our complete product lines organized by
-                            application and tool type
-                        </p>
-                    </div>
+                {/* Product Image */}
+                <div className="mb-4 flex h-40 w-full items-center justify-center overflow-hidden rounded-lg bg-gray-700">
+                  {product.mainImage ? (
+                    <Image
+                      src={product.mainImage}
+                      alt={product.name}
+                      width={160}
+                      height={160}
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      unoptimized
+                    />
+                  ) : (
+                    <div className="text-3xl text-gray-500">📷</div>
+                  )}
+                </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
-                        {Object.entries(categories).map(
-                            ([categoryId, category]) => {
-                                const categoryProducts =
-                                    getProductsByCategory(categoryId);
-                                const productCount =
-                                    Object.keys(categoryProducts).length;
+                {/* Category Badge */}
+                <div className="mb-3 inline-block rounded-full bg-gray-700 px-3 py-1 text-xs font-semibold text-orange-400 uppercase">
+                  {product.categoryName}
+                </div>
 
-                                return (
-                                    <Link
-                                        key={categoryId}
-                                        href={`/category/${categoryId}`}
-                                        className="group bg-gray-800 border border-gray-700 rounded-xl p-6 hover:border-orange-500 transition-all duration-300 text-center"
-                                    >
-                                        <div
-                                            className={`w-16 h-16 bg-gradient-to-br ${category.color} rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}
-                                        >
-                                            <span className="text-2xl text-white">
-                                                {category.emoji}
-                                            </span>
-                                        </div>
-                                        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
-                                            {category.name}
-                                        </h3>
-                                        <p className="text-sm text-gray-400 mb-3">
-                                            {productCount} products
-                                        </p>
-                                        <div className="text-sm text-orange-400 font-bold group-hover:text-orange-300 transition-colors">
-                                            VIEW ALL →
-                                        </div>
-                                    </Link>
-                                );
-                            }
-                        )}
-                    </div>
-                </section>
+                <h3 className="mb-2 line-clamp-2 flex h-16 items-start text-lg font-bold text-white transition-colors group-hover:text-orange-400">
+                  {product.name}
+                </h3>
 
-                {/* Featured Products Grid */}
-                <section className="mb-16">
-                    <div className="text-center mb-8">
-                        <h2 className="text-2xl font-bold text-white mb-4">
-                            OUR MOST POPULAR TOOLS
-                        </h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">
-                            Top-rated tools chosen by professionals worldwide
-                            for their exceptional performance and reliability
-                        </p>
-                    </div>
+                <p className="mb-3 line-clamp-2 text-sm text-gray-400">
+                  {product.shortDescription}
+                </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {getFeaturedProducts().map((product) => (
-                            <Link
-                                key={`${product.category}-${product.id}`}
-                                href={`/products/${product.category}/${product.id}`}
-                                className="group bg-gray-800 border border-gray-700 rounded-xl p-6 hover:border-orange-500 transition-all duration-300 hover:shadow-xl relative"
-                            >
-                                {/* Featured Badge */}
-                                <div className="absolute z-10 top-4 right-4 bg-orange-600 text-white text-xs font-bold px-2 py-1 rounded-full">
-                                    FEATURED
-                                </div>
+                <div className="mt-4 flex items-center justify-between">
+                  <div className="text-sm font-bold text-orange-400 transition-colors group-hover:text-orange-300">
+                    VIEW →
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
 
-                                {/* Product Image */}
-                                <div className="w-full h-40 mb-4 rounded-lg overflow-hidden bg-gray-700 flex items-center justify-center">
-                                    {product.mainImage ? (
-                                        <Image
-                                            src={product.mainImage}
-                                            alt={product.name}
-                                            width={160}
-                                            height={160}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                                            unoptimized
-                                        />
-                                    ) : (
-                                        <div className="text-gray-500 text-3xl">
-                                            📷
-                                        </div>
-                                    )}
-                                </div>
+        {/* Call to Action */}
+        <section className="rounded-2xl bg-gradient-to-r from-orange-600 to-red-600 p-12 text-center text-white shadow-2xl">
+          <h2 className="mb-4 text-3xl font-bold">NEED A CUSTOM SOLUTION?</h2>
+          <p className="mx-auto mb-8 max-w-2xl text-xl">
+            Can&apos;t find exactly what you&apos;re looking for? Our
+            engineering team specializes in creating custom industrial tools
+            tailored to your specific requirements and applications.
+          </p>
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-block rounded-lg bg-white px-8 py-3 font-bold text-orange-600 transition-colors hover:bg-gray-100"
+            >
+              REQUEST CUSTOM QUOTE
+            </Link>
+            <button className="rounded-lg border-2 border-white px-8 py-3 font-bold text-white transition-colors hover:bg-white hover:text-orange-600">
+              DOWNLOAD CATALOG
+            </button>
+          </div>
+        </section>
+      </div>
 
-                                {/* Category Badge */}
-                                <div className="inline-block px-3 py-1 bg-gray-700 text-orange-400 text-xs font-semibold rounded-full mb-3 uppercase">
-                                    {product.categoryName}
-                                </div>
-
-                                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
-                                    {product.name}
-                                </h3>
-
-                                <p className="text-gray-400 mb-3 text-sm line-clamp-2">
-                                    {product.shortDescription}
-                                </p>
-
-                                <div className="flex items-center justify-between mt-4">
-                                    <div className="text-sm text-orange-400 font-bold group-hover:text-orange-300 transition-colors">
-                                        VIEW →
-                                    </div>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                </section>
-
-                {/* Call to Action */}
-                <section className="text-center bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-2xl p-12 shadow-2xl">
-                    <h2 className="text-3xl font-bold mb-4">
-                        NEED A CUSTOM SOLUTION?
-                    </h2>
-                    <p className="text-xl mb-8 max-w-2xl mx-auto">
-                        Can&apos;t find exactly what you&apos;re looking for?
-                        Our engineering team specializes in creating custom
-                        industrial tools tailored to your specific requirements
-                        and applications.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link
-                            href="/contact"
-                            className="bg-white text-orange-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors inline-block"
-                        >
-                            REQUEST CUSTOM QUOTE
-                        </Link>
-                        <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-orange-600 transition-colors">
-                            DOWNLOAD CATALOG
-                        </button>
-                    </div>
-                </section>
-            </div>
-
-            <Footer />
-        </div>
-    );
+      <Footer />
+    </div>
+  );
 }
