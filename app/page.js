@@ -129,7 +129,7 @@ export default function Home() {
                                             <h4 className="text-xl font-bold text-white mb-3 group-hover:text-orange-400 transition-colors uppercase">
                                                 {category.name}
                                             </h4>
-                                            <p className="text-gray-400 mb-4 leading-relaxed text-sm">
+                                            <p className="text-gray-400 mb-4 leading-relaxed text-sm line-clamp-3">
                                                 {category.description}
                                             </p>
 

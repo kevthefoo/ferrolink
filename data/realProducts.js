@@ -861,7 +861,7 @@ export const categories = {
     },
     "gardening-tools": {
         id: "gardening-tools",
-        name: "Gardening Tools",
+        name: "Garden Gear",
         description:
             "Professional gardening and landscaping tools for all outdoor projects",
         emoji: "🌱",
@@ -869,7 +869,7 @@ export const categories = {
     },
     handles: {
         id: "handles",
-        name: "Tool Handles",
+        name: "Handles",
         description:
             "Premium replacement handles and components for tool restoration",
         emoji: "🪚",

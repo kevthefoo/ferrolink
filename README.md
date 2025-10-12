@@ -87,7 +87,7 @@ FerroLink Tools is a premium hand tools manufacturer focused on:
 ## Project Structure
 
 ```
-ferrolink_v2/
+ferrolink/
 ├── app/                    # Next.js App Router pages
 │   ├── page.js            # Homepage
 │   ├── layout.js          # Root layout
