@@ -369,24 +369,26 @@ export default function Home() {
           </form>
 
           {/* Newsletter Benefits */}
-          <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div className="flex items-center justify-center text-gray-300">
-              <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-orange-600">
-                <span className="text-sm font-bold text-white">🆕</span>
+          <div className="mb-8 flex justify-center">
+            <div className="flex w-fit flex-col items-start gap-6 md:grid md:grid-cols-3">
+              <div className="flex items-center justify-center text-gray-300">
+                <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-orange-600">
+                  <span className="text-sm font-bold text-white">🆕</span>
+                </div>
+                <span className="text-sm">New Product Releases</span>
               </div>
-              <span className="text-sm">New Product Releases</span>
-            </div>
-            <div className="flex items-center justify-center text-gray-300">
-              <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-orange-600">
-                <span className="text-sm font-bold text-white">💰</span>
+              <div className="flex items-center justify-center text-gray-300">
+                <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-orange-600">
+                  <span className="text-sm font-bold text-white">💰</span>
+                </div>
+                <span className="text-sm">Exclusive Promotions</span>
               </div>
-              <span className="text-sm">Exclusive Promotions</span>
-            </div>
-            <div className="flex items-center justify-center text-gray-300">
-              <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-orange-600">
-                <span className="text-sm font-bold text-white">💡</span>
+              <div className="flex items-center justify-center text-gray-300">
+                <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-orange-600">
+                  <span className="text-sm font-bold text-white">💡</span>
+                </div>
+                <span className="text-sm">Professional Tips</span>
               </div>
-              <span className="text-sm">Professional Tips</span>
             </div>
           </div>
 
