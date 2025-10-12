@@ -185,9 +185,6 @@ export default async function ProductDetail({ params }) {
               >
                 REQUEST QUOTE
               </Link>
-              <button className="flex-1 rounded-xl border-2 border-orange-600 px-8 py-4 font-bold text-orange-600 transition-colors hover:bg-orange-600 hover:text-white">
-                ADD TO WISHLIST
-              </button>
             </div>
           </div>
         </div>
@@ -250,7 +247,7 @@ export default async function ProductDetail({ params }) {
                     className="group rounded-xl border border-gray-700 bg-gray-800 p-6 transition-all duration-300 hover:border-orange-500"
                   >
                     {relatedProduct.mainImage && (
-                      <div className="mb-4 h-32 w-full overflow-hidden rounded-lg bg-gray-700">
+                      <div className="mb-4 h-48 w-full overflow-hidden rounded-lg bg-gray-700">
                         <Image
                           src={relatedProduct.mainImage}
                           alt={relatedProduct.name}
