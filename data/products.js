@@ -7,7 +7,7 @@ export const productsData = {
             name: "4-Flute Carbide End Mill",
             category: "cnc-tools",
             categoryName: "CNC Tools",
-            price: "$89.99",
+
             shortDescription:
                 "High-precision 4-flute carbide end mill for aluminum and steel machining",
             description:
@@ -67,7 +67,7 @@ export const productsData = {
             name: "HSS Drill Bit Set (1-13mm)",
             category: "cnc-tools",
             categoryName: "CNC Tools",
-            price: "$149.99",
+
             shortDescription:
                 "Professional 25-piece high-speed steel drill bit set with titanium coating",
             description:
@@ -122,7 +122,7 @@ export const productsData = {
             name: "Professional Claw Hammer 16oz",
             category: "hammers",
             categoryName: "Hammers",
-            price: "$79.99",
+
             shortDescription:
                 "Premium forged steel claw hammer with anti-vibration handle",
             description:
@@ -182,7 +182,7 @@ export const productsData = {
             name: "Ball Peen Hammer 24oz",
             category: "hammers",
             categoryName: "Hammers",
-            price: "$69.99",
+
             shortDescription:
                 "Heavy-duty ball peen hammer for metalworking and riveting",
             description:
@@ -243,7 +243,7 @@ export const productsData = {
             name: 'Professional Felling Axe 36"',
             category: "axes",
             categoryName: "Axes",
-            price: "$189.99",
+
             shortDescription:
                 "Heavy-duty felling axe with 4lb head and premium hickory handle",
             description:
@@ -305,7 +305,7 @@ export const productsData = {
             name: "Professional Digging Spade",
             category: "garden-tools",
             categoryName: "Garden Tools",
-            price: "$129.99",
+
             shortDescription:
                 "Heavy-duty digging spade with heat-treated steel blade and fiberglass handle",
             description:

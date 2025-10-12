@@ -1,5 +1,4 @@
 // Real product data based on actual product images
-
 export const productsData = {
     // HAMMERS Category
     hammers: {
@@ -8,7 +7,6 @@ export const productsData = {
             name: "F-10 Professional Claw Hammer",
             category: "hammers",
             categoryName: "Hammers",
-            price: "$42.99",
             shortDescription:
                 "Heavy-duty claw hammer with fiberglass handle for professional construction work",
             description:
@@ -47,7 +45,6 @@ export const productsData = {
             name: "F-11 Ball Peen Hammer",
             category: "hammers",
             categoryName: "Hammers",
-            price: "$38.99",
             shortDescription:
                 "Precision ball peen hammer for metalworking and riveting applications",
             description:
@@ -86,7 +83,6 @@ export const productsData = {
             name: "F-28 Heavy-Duty Sledgehammer",
             category: "hammers",
             categoryName: "Hammers",
-            price: "$89.99",
             shortDescription:
                 "Professional sledgehammer for demolition and heavy construction work",
             description:
@@ -125,7 +121,6 @@ export const productsData = {
             name: "F-100 Precision Finishing Hammer",
             category: "hammers",
             categoryName: "Hammers",
-            price: "$56.99",
             shortDescription:
                 "Lightweight finishing hammer for delicate carpentry and cabinet work",
             description:
@@ -164,7 +159,6 @@ export const productsData = {
             name: "W-261 Ergonomic Framing Hammer",
             category: "hammers",
             categoryName: "Hammers",
-            price: "$78.99",
             shortDescription:
                 "Advanced ergonomic framing hammer with vibration dampening technology",
             description:
@@ -203,7 +197,6 @@ export const productsData = {
             name: "F-32 Framing Hammer",
             category: "hammers",
             categoryName: "Hammers",
-            price: "$65.99",
             shortDescription:
                 "Professional framing hammer with milled face and magnetic nail starter",
             description:
@@ -242,7 +235,6 @@ export const productsData = {
             name: "F-34 Finishing Hammer",
             category: "hammers",
             categoryName: "Hammers",
-            price: "$52.99",
             shortDescription:
                 "Lightweight finishing hammer for precision carpentry and trim work",
             description:
@@ -281,7 +273,6 @@ export const productsData = {
             name: "F-38 Cross Peen Hammer",
             category: "hammers",
             categoryName: "Hammers",
-            price: "$44.99",
             shortDescription:
                 "Cross peen hammer for metalworking and blacksmith applications",
             description:
@@ -320,7 +311,6 @@ export const productsData = {
             name: "W-014 Precision Tack Hammer",
             category: "hammers",
             categoryName: "Hammers",
-            price: "$32.99",
             shortDescription:
                 "Lightweight tack hammer for upholstery and fine assembly work",
             description:
@@ -359,7 +349,6 @@ export const productsData = {
             name: "W-015 Dead Blow Hammer",
             category: "hammers",
             categoryName: "Hammers",
-            price: "$58.99",
             shortDescription:
                 "Dead blow hammer with shot-filled head for non-marring strikes",
             description:
@@ -394,7 +383,6 @@ export const productsData = {
             relatedProducts: ["w-017", "w-261", "f-11"],
         },
     },
-
     // AXES Category
     axes: {
         "f-26": {
@@ -402,7 +390,6 @@ export const productsData = {
             name: "F-26 Professional Felling Axe",
             category: "axes",
             categoryName: "Axes",
-            price: "$124.99",
             shortDescription:
                 "Heavy-duty felling axe for professional forestry and tree cutting",
             description:
@@ -441,7 +428,6 @@ export const productsData = {
             name: "F-27 Splitting Maul",
             category: "axes",
             categoryName: "Axes",
-            price: "$98.99",
             shortDescription:
                 "Heavy splitting maul designed for efficient log splitting and firewood preparation",
             description:
@@ -480,7 +466,6 @@ export const productsData = {
             name: "S-240 Tactical Hatchet",
             category: "axes",
             categoryName: "Axes",
-            price: "$89.99",
             shortDescription:
                 "Compact tactical hatchet for camping, bushcraft, and emergency preparedness",
             description:
@@ -515,7 +500,6 @@ export const productsData = {
             relatedProducts: ["s-247", "s-248", "s-249f"],
         },
     },
-
     // GARDENING TOOLS Category
     "gardening-tools": {
         "cr-6005": {
@@ -523,7 +507,6 @@ export const productsData = {
             name: "CR-6005 Professional Pruning Shears",
             category: "gardening-tools",
             categoryName: "Gardening Tools",
-            price: "$67.99",
             shortDescription:
                 "Premium bypass pruning shears for professional landscaping and garden maintenance",
             description:
@@ -562,7 +545,6 @@ export const productsData = {
             name: "CS-01 Heavy-Duty Garden Spade",
             category: "gardening-tools",
             categoryName: "Gardening Tools",
-            price: "$78.99",
             shortDescription:
                 "Professional-grade garden spade for digging, edging, and soil preparation",
             description:
@@ -601,7 +583,6 @@ export const productsData = {
             name: "CSW-24 Precision Weeding Tool",
             category: "gardening-tools",
             categoryName: "Gardening Tools",
-            price: "$34.99",
             shortDescription:
                 "Specialized weeding tool for precise weed removal and garden maintenance",
             description:
@@ -636,7 +617,6 @@ export const productsData = {
             relatedProducts: ["csw-26", "el-10f", "s-303"],
         },
     },
-
     // HANDLES Category
     handles: {
         "s-284": {
@@ -644,7 +624,6 @@ export const productsData = {
             name: "S-284 Hickory Axe Handle",
             category: "handles",
             categoryName: "Tool Handles",
-            price: "$28.99",
             shortDescription:
                 "Premium hickory replacement handle for axes and hatchets",
             description:
@@ -683,7 +662,6 @@ export const productsData = {
             name: "S-285 Hammer Handle - 16oz",
             category: "handles",
             categoryName: "Tool Handles",
-            price: "$18.99",
             shortDescription:
                 "Replacement hickory handle designed for 16oz claw and ball peen hammers",
             description:
@@ -718,7 +696,6 @@ export const productsData = {
             relatedProducts: ["s-284", "s-291", "s-286"],
         },
     },
-
     // OTHER TOOLS Category
     "other-tools": {
         "d-210": {
@@ -726,7 +703,6 @@ export const productsData = {
             name: "D-210 Precision Measuring Caliper",
             category: "other-tools",
             categoryName: "Other Tools",
-            price: "$156.99",
             shortDescription:
                 "High-precision digital caliper for accurate measurement in machining and fabrication",
             description:
@@ -765,7 +741,6 @@ export const productsData = {
             name: "D-310 Digital Micrometer Set",
             category: "other-tools",
             categoryName: "Other Tools",
-            price: "$289.99",
             shortDescription:
                 "Professional micrometer set for ultra-precise measurements in manufacturing",
             description:
@@ -804,7 +779,6 @@ export const productsData = {
             name: "R-24 Professional Pipe Wrench Set",
             category: "other-tools",
             categoryName: "Other Tools",
-            price: "$124.99",
             shortDescription:
                 "Heavy-duty pipe wrench set for plumbing and industrial applications",
             description:
@@ -840,7 +814,6 @@ export const productsData = {
         },
     },
 };
-
 // Category definitions matching the image structure
 export const categories = {
     hammers: {
@@ -883,23 +856,19 @@ export const categories = {
         color: "from-blue-500 to-blue-700",
     },
 };
-
 // Helper function to get all products from a category
 export function getProductsByCategory(categoryId) {
     return productsData[categoryId] || {};
 }
-
 // Helper function to get a specific product
 export function getProductById(categoryId, productId) {
     const categoryProducts = productsData[categoryId];
     return categoryProducts ? categoryProducts[productId] : null;
 }
-
 // Helper function to search products
 export function searchProducts(query) {
     const results = [];
     const searchLower = query.toLowerCase();
-
     Object.keys(productsData).forEach((categoryId) => {
         Object.keys(productsData[categoryId]).forEach((productId) => {
             const product = productsData[categoryId][productId];
@@ -912,10 +881,8 @@ export function searchProducts(query) {
             }
         });
     });
-
     return results;
 }
-
 // Featured products for main products page (our most famous tools)
 export const featuredProducts = [
     { category: "hammers", id: "w-261" }, // Ergonomic Framing Hammer - Top seller
@@ -927,7 +894,6 @@ export const featuredProducts = [
     { category: "gardening-tools", id: "cs-01" }, // Heavy-Duty Garden Spade - Professional choice
     { category: "other-tools", id: "d-210" }, // Precision Caliper - High-tech tool
 ];
-
 // Get featured products with full details
 export function getFeaturedProducts() {
     return featuredProducts
@@ -936,7 +902,6 @@ export function getFeaturedProducts() {
         })
         .filter((product) => product !== null);
 }
-
 // Get all products as flat array
 export function getAllProducts() {
     const allProducts = [];

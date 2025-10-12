@@ -134,12 +134,6 @@ export default async function CategoryPage({ params }) {
                                 <div className="flex items-center space-x-4">
                                     <select className="bg-gray-800 border border-gray-700 text-white px-4 py-2 rounded-lg focus:outline-none focus:border-orange-500">
                                         <option>Sort by: Featured</option>
-                                        <option>
-                                            Sort by: Price (Low to High)
-                                        </option>
-                                        <option>
-                                            Sort by: Price (High to Low)
-                                        </option>
                                         <option>Sort by: Name (A-Z)</option>
                                     </select>
                                 </div>
@@ -203,9 +197,6 @@ export default async function CategoryPage({ params }) {
                                         </div>
 
                                         <div className="flex items-center justify-between border-t border-gray-700 pt-4">
-                                            <div className="text-lg font-bold text-orange-500">
-                                                {product.price}
-                                            </div>
                                             <div className="text-sm text-orange-400 font-bold group-hover:text-orange-300 transition-colors">
                                                 VIEW DETAILS →
                                             </div>

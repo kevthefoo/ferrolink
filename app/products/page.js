@@ -132,9 +132,6 @@ export default function Products() {
                                 </p>
 
                                 <div className="flex items-center justify-between mt-4">
-                                    <div className="text-lg font-bold text-orange-500">
-                                        {product.price}
-                                    </div>
                                     <div className="text-sm text-orange-400 font-bold group-hover:text-orange-300 transition-colors">
                                         VIEW →
                                     </div>

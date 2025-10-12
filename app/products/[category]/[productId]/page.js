@@ -143,13 +143,10 @@ export default async function ProductDetail({ params }) {
                             <p className="text-xl text-gray-300 leading-relaxed">
                                 {product.shortDescription}
                             </p>
-                            <div className="text-3xl font-bold text-orange-500 mt-4">
-                                {product.price}
-                            </div>
                         </div>
 
                         {/* Description */}
-                        <div className="bg-gray-800 border border-gray-700 rounded-xl p-6">
+                        <div className="mt-12 bg-gray-800 border border-gray-700 rounded-xl p-6">
                             <h3 className="text-xl font-bold text-white mb-4">
                                 Product Description
                             </h3>
@@ -310,9 +307,6 @@ export default async function ProductDetail({ params }) {
                                                         relatedProduct.shortDescription
                                                     }
                                                 </p>
-                                                <div className="text-orange-500 font-bold">
-                                                    {relatedProduct.price}
-                                                </div>
                                             </Link>
                                         );
                                     })}
