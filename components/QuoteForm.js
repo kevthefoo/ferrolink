@@ -71,7 +71,7 @@ const QuoteForm = () => {
         <textarea
           rows="4"
           placeholder="Tell us about your project or requirements..."
-          className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-orange-600 focus:outline-none"
+          className="w-full resize-none rounded-lg border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-orange-600 focus:outline-none"
         ></textarea>
         <button
           type="submit"
