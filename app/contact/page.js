@@ -1,7 +1,42 @@
+'use client'
+
+import { useState } from 'react';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        e.target.reset(); // Clear the form
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50">
       <Header currentPage="contact" />
@@ -24,7 +59,36 @@ export default function Contact() {
             <h2 className="mb-6 text-2xl font-bold text-slate-900">
               Send us a Message
             </h2>
-            <form className="space-y-6" action="/api/contact" method="post">
+
+            {/* Success Message */}
+            {submitStatus === 'success' && (
+              <div className="mb-6 rounded-lg bg-green-50 border border-green-200 p-4">
+                <div className="flex items-center">
+                  <svg className="h-5 w-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="text-green-800 font-medium">
+                    Message sent successfully! We will get back to you within 1 business day.
+                  </span>
+                </div>
+              </div>
+            )}
+
+            {/* Error Message */}
+            {submitStatus === 'error' && (
+              <div className="mb-6 rounded-lg bg-red-50 border border-red-200 p-4">
+                <div className="flex items-center">
+                  <svg className="h-5 w-5 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <span className="text-red-800 font-medium">
+                    Failed to send message. Please try again or contact us directly.
+                  </span>
+                </div>
+              </div>
+            )}
+
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-2 block text-sm font-medium text-slate-700">
@@ -34,7 +98,8 @@ export default function Contact() {
                     name="firstName"
                     type="text"
                     required
-                    className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none"
+                    disabled={isSubmitting}
+                    className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none disabled:bg-gray-100 disabled:cursor-not-allowed"
                     placeholder="John"
                   />
                 </div>
@@ -46,7 +111,8 @@ export default function Contact() {
                     name="lastName"
                     type="text"
                     required
-                    className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none"
+                    disabled={isSubmitting}
+                    className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none disabled:bg-gray-100 disabled:cursor-not-allowed"
                     placeholder="Smith"
                   />
                 </div>
@@ -60,7 +126,8 @@ export default function Contact() {
                   name="email"
                   type="email"
                   required
-                  className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none"
+                  disabled={isSubmitting}
+                  className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none disabled:bg-gray-100 disabled:cursor-not-allowed"
                   placeholder="john@company.com"
                 />
               </div>
@@ -72,7 +139,8 @@ export default function Contact() {
                 <input
                   name="phone"
                   type="tel"
-                  className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none"
+                  disabled={isSubmitting}
+                  className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none disabled:bg-gray-100 disabled:cursor-not-allowed"
                   placeholder="(555) 123-4567"
                 />
               </div>
@@ -84,7 +152,8 @@ export default function Contact() {
                 <input
                   name="company"
                   type="text"
-                  className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none"
+                  disabled={isSubmitting}
+                  className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none disabled:bg-gray-100 disabled:cursor-not-allowed"
                   placeholder="Your Company"
                 />
               </div>
@@ -96,13 +165,15 @@ export default function Contact() {
                 <select
                   name="productInterest"
                   required
-                  className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none"
+                  disabled={isSubmitting}
+                  className="w-full rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none disabled:bg-gray-100 disabled:cursor-not-allowed"
                 >
                   <option value="">Select Product Category</option>
-                  <option value="cnc-tools">CNC Tools</option>
                   <option value="hammers">Hammers</option>
                   <option value="axes">Axes</option>
-                  <option value="garden-tools">Garden Tools</option>
+                  <option value="gardening-tools">Gardening Tools</option>
+                  <option value="tool-handles">Tool Handles</option>
+                  <option value="other-tools">Other Tools</option>
                   <option value="custom-solution">Custom Solution</option>
                   <option value="bulk-order">Bulk Order</option>
                   <option value="general-inquiry">General Inquiry</option>
@@ -117,17 +188,19 @@ export default function Contact() {
                   name="message"
                   rows="5"
                   required
-                  className="w-full resize-none rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none"
+                  disabled={isSubmitting}
+                  className="w-full resize-none rounded-lg border border-slate-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-orange-600 focus:outline-none disabled:bg-gray-100 disabled:cursor-not-allowed"
                   placeholder="Tell us about your project requirements, quantity needs, or any specific questions you have about our tools..."
                 ></textarea>
               </div>
 
               <div className="flex items-start">
                 <input
-                name="newsletter"
+                  name="newsletter"
                   type="checkbox"
                   id="newsletter"
-                  className="mt-1 h-4 w-4 rounded border-slate-300 text-orange-600 focus:ring-orange-500"
+                  disabled={isSubmitting}
+                  className="mt-1 h-4 w-4 rounded border-slate-300 text-orange-600 focus:ring-orange-500 disabled:cursor-not-allowed"
                 />
                 <label
                   htmlFor="newsletter"
@@ -140,14 +213,25 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full cursor-pointer rounded-lg bg-orange-600 py-3 font-semibold text-white transition-colors hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:outline-none"
+                disabled={isSubmitting}
+                className="w-full cursor-pointer rounded-lg bg-orange-600 py-3 font-semibold text-white transition-colors hover:bg-orange-700 focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:outline-none disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending Message...
+                  </span>
+                ) : (
+                  'Send Message'
+                )}
               </button>
             </form>
           </div>
 
-          {/* Contact Information */}
+          {/* Contact Information - keeping the existing content */}
           <div className="space-y-8">
             {/* Contact Methods */}
             <div className="rounded-2xl bg-white p-8 shadow-lg">
@@ -312,6 +396,7 @@ export default function Contact() {
                 height="100%"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full border-0 rounded-xl"
               ></iframe>
             </div>
           </div>

@@ -14,7 +14,8 @@ export async function POST(request) {
     const productInterest = formData.get("productInterest");
     const message = formData.get("message");
     const newsletter = formData.get("newsletter");
-
+    
+    const SUPPORT_EMAIL = process.env.SUPPORT_EMAIL
     // Configure email service - using Gmail
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -101,7 +102,7 @@ export async function POST(request) {
     // Send email
     await transporter.sendMail({
       from: `"FerroLink Contact Form" <${process.env.EMAIL_USER}>`,
-      to: "kevthefoo@gmail.com",
+      to: SUPPORT_EMAIL,
       replyTo: email,
       subject: `🔧 New Contact: ${productInterest} - ${firstName} ${lastName}`,
       html: htmlContent,
