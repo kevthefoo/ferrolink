@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
-import Product360Viewer from "../../../../components/Product360Viewer";
 import {
   getProductById,
   categories,
@@ -84,29 +83,41 @@ export default async function ProductDetail({ params }) {
         <div className="mb-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
           {/* Product Images and 360° Viewer */}
           <div className="space-y-6">
-            <div className="rounded-2xl border border-gray-700 bg-gray-800 p-8">
-              <h3 className="mb-4 text-center text-xl font-bold text-white">
-                Interactive 360° Product View
-              </h3>
-              <Product360Viewer
-                productName={product.name}
-                images={product.images360 || [product.mainImage]}
-              />
-            </div>
-
             {/* Main Product Image */}
             {product.mainImage && (
-              <div className="rounded-2xl border border-gray-700 bg-gray-800 p-6">
+              <div className="rounded-2xl border border-gray-700 bg-gray-800 p-3 sm:p-4 md:p-6">
                 <Image
                   src={product.mainImage}
                   alt={product.name}
                   width={600}
                   height={400}
-                  className="h-64 w-full rounded-xl object-cover"
+                  className="h-48 w-full rounded-xl object-cover sm:h-64 md:h-72 lg:h-80"
                   unoptimized
                 />
               </div>
             )}
+
+            {/* Technical Specifications */}
+            <div className="mb-12 w-full rounded-xl border border-gray-700 bg-gray-800 p-4 sm:p-6">
+              <h3 className="mb-4 text-xl font-bold text-white sm:mb-6 sm:text-2xl">
+                Technical Specifications
+              </h3>
+              <div className="space-y-3 sm:space-y-4">
+                {Object.entries(product.specifications).map(([key, value]) => (
+                  <div
+                    key={key}
+                    className="flex flex-col gap-1 border-b border-gray-700 pb-3 sm:flex-row sm:justify-between sm:pb-2"
+                  >
+                    <span className="text-sm font-medium text-gray-400 sm:text-base">
+                      {key}:
+                    </span>
+                    <span className="text-sm font-semibold text-white sm:text-right sm:text-base">
+                      {value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Product Information */}
@@ -187,46 +198,6 @@ export default async function ProductDetail({ params }) {
               </Link>
             </div>
           </div>
-        </div>
-
-        {/* Technical Specifications */}
-        <div className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <div className="rounded-xl border border-gray-700 bg-gray-800 p-6">
-            <h3 className="mb-6 text-2xl font-bold text-white">
-              Technical Specifications
-            </h3>
-            <div className="space-y-4">
-              {Object.entries(product.specifications).map(([key, value]) => (
-                <div
-                  key={key}
-                  className="flex justify-between border-b border-gray-700 pb-2"
-                >
-                  <span className="font-medium text-gray-400">{key}:</span>
-                  <span className="font-semibold text-white">{value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Technical Data (if available) */}
-          {product.technicalData && (
-            <div className="rounded-xl border border-gray-700 bg-gray-800 p-6">
-              <h3 className="mb-6 text-2xl font-bold text-white">
-                Technical Data
-              </h3>
-              <div className="space-y-4">
-                {Object.entries(product.technicalData).map(([key, value]) => (
-                  <div
-                    key={key}
-                    className="flex justify-between border-b border-gray-700 pb-2"
-                  >
-                    <span className="font-medium text-gray-400">{key}:</span>
-                    <span className="font-semibold text-white">{value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
 
         {/* Related Products */}
