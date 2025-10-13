@@ -8,6 +8,56 @@ import {
   getProductsByCategory,
 } from "../../../data/realProducts";
 
+// Generate dynamic metadata for each category
+export async function generateMetadata({ params }) {
+  const { categoryId } = await params;
+  const category = categories[categoryId];
+  const categoryProducts = getProductsByCategory(categoryId);
+  const productCount = Object.keys(categoryProducts).length;
+
+  if (!category) {
+    return {
+      title: "Category Not Found - FerroLink Tools",
+      description: "The requested product category could not be found.",
+    };
+  }
+
+  return {
+    title: `${category.name} - Professional ${category.name} Tools | FerroLink Tools`,
+    description: `${category.description} Browse our collection of ${productCount} professional-grade ${category.name.toLowerCase()} from FerroLink Tools. Industrial quality tools for professionals.`,
+    keywords: `${category.name}, ${categoryId}, professional ${category.name.toLowerCase()}, industrial tools, FerroLink, ${category.name} tools, professional tools`,
+    openGraph: {
+      title: `Professional ${category.name} Tools - FerroLink Tools`,
+      description: `${category.description} Professional-grade ${category.name.toLowerCase()} for industrial applications.`,
+      url: `https://ferrolink.co/category/${categoryId}`,
+      siteName: "FerroLink Tools",
+      images: [
+        {
+          url: `/assets/categories/${categoryId}-collection.jpg`,
+          width: 1200,
+          height: 630,
+          alt: `${category.name} Tools Collection - FerroLink Tools`,
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `Professional ${category.name} Tools - FerroLink Tools`,
+      description: `${category.description}`,
+      images: [`/assets/categories/${categoryId}-collection.jpg`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: `https://ferrolink.co/category/${categoryId}`,
+    },
+  };
+}
+
 // Generate static params for all categories
 export async function generateStaticParams() {
   return Object.keys(categories).map((categoryId) => ({

@@ -1,6 +1,45 @@
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
+export const metadata = {
+  title: "About FerroLink Tools - 25+ Years of Tool Manufacturing Excellence",
+  description:
+    "Learn about FerroLink Tools' heritage in manufacturing premium industrial hand tools, CNC equipment, and precision instruments. 25+ years serving professionals worldwide with quality and innovation.",
+  keywords:
+    "FerroLink history, tool manufacturer, industrial tools company, CNC tools Taiwan, hand tools manufacturer, professional tools company",
+  openGraph: {
+    title: "About FerroLink Tools - 25+ Years of Tool Manufacturing Excellence",
+    description:
+      "Learn about FerroLink Tools' heritage in manufacturing premium industrial hand tools, CNC equipment, and precision instruments.",
+    url: "https://ferrolink.co/about",
+    siteName: "FerroLink Tools",
+    images: [
+      {
+        url: "/assets/about/ferrolink-factory.jpg",
+        width: 1200,
+        height: 630,
+        alt: "FerroLink Tools Manufacturing Facility",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About FerroLink Tools - 25+ Years of Tool Manufacturing Excellence",
+    description:
+      "Learn about FerroLink Tools' heritage in manufacturing premium industrial hand tools and CNC equipment.",
+    images: ["/assets/about/ferrolink-factory.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://ferrolink.co/about",
+  },
+};
+
 export default function About() {
   return (
     <div className="min-h-screen bg-slate-50">

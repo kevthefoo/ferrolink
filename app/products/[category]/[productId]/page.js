@@ -8,6 +8,57 @@ import {
 } from "../../../../data/realProducts";
 import Link from "next/link";
 
+// Generate dynamic metadata for each product
+export async function generateMetadata({ params }) {
+  const { category, productId } = await params;
+  const product = getProductById(category, productId);
+  const categoryInfo = categories[category];
+
+  if (!product) {
+    return {
+      title: "Product Not Found - FerroLink Tools",
+      description: "The requested product could not be found.",
+    };
+  }
+
+  return {
+    title: `${product.name} - ${categoryInfo?.name || "Professional Tools"} | FerroLink Tools`,
+    description: `${product.shortDescription} ${product.description.substring(0, 100)}... Professional-grade ${categoryInfo?.name?.toLowerCase() || "tools"} from FerroLink Tools.`,
+    keywords: `${product.name}, ${categoryInfo?.name}, ${category}, professional tools, industrial tools, FerroLink, ${Object.keys(product.specifications).join(", ")}`,
+    openGraph: {
+      title: `${product.name} - Professional ${categoryInfo?.name || "Tools"}`,
+      description: product.shortDescription,
+      url: `https://ferrolink.co/products/${category}/${productId}`,
+      siteName: "FerroLink Tools",
+      images: product.mainImage
+        ? [
+            {
+              url: product.mainImage,
+              width: 800,
+              height: 600,
+              alt: `${product.name} - ${categoryInfo?.name || "Professional Tool"}`,
+            },
+          ]
+        : [],
+      locale: "en_US",
+      type: "product",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} - Professional ${categoryInfo?.name || "Tools"}`,
+      description: product.shortDescription,
+      images: product.mainImage ? [product.mainImage] : [],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: `https://ferrolink.co/products/${category}/${productId}`,
+    },
+  };
+}
+
 // This function generates all possible paths for static generation
 export async function generateStaticParams() {
   const paths = [];
