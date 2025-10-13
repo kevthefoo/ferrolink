@@ -1,7 +1,7 @@
-import { categories, productsData } from "./data/realProducts";
+import { categories, productsData } from "@/data/realProducts";
 
 export default function sitemap() {
-  const baseUrl = "https://ferrolink.co";
+  const baseUrl = "https://ferrolink.io";
 
   // Static pages
   const staticPages = [

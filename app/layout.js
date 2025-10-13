@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://ferrolink.co"),
+  metadataBase: new URL("https://ferrolink.io"),
   title: {
     default: "FerroLink Tools - Premium Industrial Hand Tools & CNC Equipment",
     template: "%s | FerroLink Tools",

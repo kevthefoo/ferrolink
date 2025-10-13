@@ -5,6 +5,6 @@ export default function robots() {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://ferrolink.co/sitemap.xml",
+    sitemap: "https://ferrolink.io/sitemap.xml",
   };
 }

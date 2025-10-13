@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `Professional ${category.name} Tools - FerroLink Tools`,
       description: `${category.description} Professional-grade ${category.name.toLowerCase()} for industrial applications.`,
-      url: `https://ferrolink.co/category/${categoryId}`,
+      url: `https://ferrolink.io/category/${categoryId}`,
       siteName: "FerroLink Tools",
       images: [
         {
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }) {
       follow: true,
     },
     alternates: {
-      canonical: `https://ferrolink.co/category/${categoryId}`,
+      canonical: `https://ferrolink.io/category/${categoryId}`,
     },
   };
 }

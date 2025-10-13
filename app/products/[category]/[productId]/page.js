@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${product.name} - Professional ${categoryInfo?.name || "Tools"}`,
       description: product.shortDescription,
-      url: `https://ferrolink.co/products/${category}/${productId}`,
+      url: `https://ferrolink.io/products/${category}/${productId}`,
       siteName: "FerroLink Tools",
       images: product.mainImage
         ? [
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }) {
       follow: true,
     },
     alternates: {
-      canonical: `https://ferrolink.co/products/${category}/${productId}`,
+      canonical: `https://ferrolink.io/products/${category}/${productId}`,
     },
   };
 }

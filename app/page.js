@@ -16,7 +16,7 @@ export const metadata = {
     title: "FerroLink Tools - Premium Industrial Hand Tools & CNC Equipment",
     description:
       "Leading manufacturer of professional-grade hand tools, CNC equipment, hammers, axes, and garden tools. Engineering excellence for industrial applications.",
-    url: "https://ferrolink.co",
+    url: "https://ferrolink.io",
     siteName: "FerroLink Tools",
     images: [
       {
@@ -48,7 +48,7 @@ export const metadata = {
     },
   },
   alternates: {
-    canonical: "https://ferrolink.co",
+    canonical: "https://ferrolink.io",
   },
 };
 

@@ -11,7 +11,7 @@ export const metadata = {
     title: "About FerroLink Tools - 25+ Years of Tool Manufacturing Excellence",
     description:
       "Learn about FerroLink Tools' heritage in manufacturing premium industrial hand tools, CNC equipment, and precision instruments.",
-    url: "https://ferrolink.co/about",
+    url: "https://ferrolink.io/about",
     siteName: "FerroLink Tools",
     images: [
       {
@@ -36,7 +36,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://ferrolink.co/about",
+    canonical: "https://ferrolink.io/about",
   },
 };
 

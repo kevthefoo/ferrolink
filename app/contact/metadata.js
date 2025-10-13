@@ -8,7 +8,7 @@ export const metadata = {
     title: "Contact FerroLink Tools - Get Professional Tool Quotes & Support",
     description:
       "Contact FerroLink Tools for product information, custom tool solutions, and technical support.",
-    url: "https://ferrolink.co/contact",
+    url: "https://ferrolink.io/contact",
     siteName: "FerroLink Tools",
     images: [
       {
@@ -33,6 +33,6 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://ferrolink.co/contact",
+    canonical: "https://ferrolink.io/contact",
   },
 };

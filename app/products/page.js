@@ -19,7 +19,7 @@ export const metadata = {
       "Professional Hand Tools & CNC Equipment - FerroLink Products Catalog",
     description:
       "Browse our extensive collection of professional-grade hand tools, CNC equipment, and precision instruments.",
-    url: "https://ferrolink.co/products",
+    url: "https://ferrolink.io/products",
     siteName: "FerroLink Tools",
     images: [
       {
@@ -44,7 +44,7 @@ export const metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://ferrolink.co/products",
+    canonical: "https://ferrolink.io/products",
   },
 };
 
