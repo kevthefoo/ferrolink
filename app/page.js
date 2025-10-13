@@ -327,7 +327,7 @@ export default function Home() {
                 <span className="text-xl text-white">📧</span>
               </div>
               <h4 className="mb-2 font-semibold text-slate-900">Email</h4>
-              <p className="text-slate-600">sales@ferrolink.co</p>
+              <p className="text-slate-600">support@ferrolink.io</p>
             </div>
 
             <div className="text-center">
