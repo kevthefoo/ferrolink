@@ -2,11 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import {
-  getProductById,
-  categories,
-  productsData,
-} from "@/data/realProducts";
+import { getProductById, categories, productsData } from "@/data/realProducts";
 
 // Generate dynamic metadata for each product
 export async function generateMetadata({ params }) {
@@ -41,7 +37,7 @@ export async function generateMetadata({ params }) {
           ]
         : [],
       locale: "en_US",
-      type: "product",
+      type: "website",
     },
     twitter: {
       card: "summary_large_image",

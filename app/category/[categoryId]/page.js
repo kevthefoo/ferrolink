@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
   categories,
-  productsData,
+  // productsData,
   getProductsByCategory,
 } from "@/data/realProducts";
 
