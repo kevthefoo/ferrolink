@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import {
   categories,
   productsData,
   getProductsByCategory,
-} from "../../../data/realProducts";
+} from "@/data/realProducts";
 
 // Generate dynamic metadata for each category
 export async function generateMetadata({ params }) {

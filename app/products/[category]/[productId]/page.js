@@ -1,12 +1,12 @@
+import Link from "next/link";
 import Image from "next/image";
-import Header from "../../../../components/Header";
-import Footer from "../../../../components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import {
   getProductById,
   categories,
   productsData,
-} from "../../../../data/realProducts";
-import Link from "next/link";
+} from "@/data/realProducts";
 
 // Generate dynamic metadata for each product
 export async function generateMetadata({ params }) {
@@ -293,7 +293,6 @@ export default async function ProductDetail({ params }) {
           </div>
         )}
       </div>
-
       <Footer />
     </div>
   );
