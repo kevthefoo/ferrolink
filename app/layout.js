@@ -12,9 +12,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "FerroLink Tools - Premium Hand Tools & CNC Solutions",
+  title: "Ferrolink Industries - Premium Hand Tools & CNC machining services",
   description:
-    "Professional hand tools manufacturer specializing in Computer Numerical Control (CNC) tools, hammers, axes, and garden tools. Quality craftsmanship for professionals and enthusiasts.",
+    "Professional hand tools manufacturer specializing in high-precision CNC machining services, hammers, axes, and garden tools. Quality craftsmanship for professionals and enthusiasts.",
 };
 
 export default function RootLayout({ children }) {
