@@ -125,11 +125,11 @@ export default function Header({ currentPage = "home" }) {
 
         {/* Mobile Navigation Menu */}
         <div
-          className={`fixed left-0 z-50000 flex w-full flex-col justify-center overflow-hidden border-2 border-white transition-all duration-300 ease-in-out md:hidden ${
+          className={`fixed left-0 z-50000 flex w-full flex-col justify-center overflow-hidden border-2 border-white bg-gray-800/95 backdrop-blur-sm transition-all duration-300 ease-in-out md:hidden ${
             isMobileMenuOpen ? "h-screen opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="border-t border-gray-700 bg-gray-800/95 backdrop-blur-sm">
+          <div className="bg-gray-800/95 backdrop-blur-sm">
             <nav className="space-y-4 px-4 py-6">
               <Link
                 href="/"
