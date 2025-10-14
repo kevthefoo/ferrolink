@@ -58,9 +58,9 @@ export default function Home() {
       <Header currentPage="home" />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8">
+      <section className="relative h-screen overflow-hidden px-4 pt-40 sm:px-6 lg:px-8">
         {/* Industrial Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 top-36 opacity-10">
           <div
             className="absolute inset-0"
             style={{
@@ -104,7 +104,7 @@ export default function Home() {
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute top-10 left-10 h-20 w-20 border-t-2 border-l-2 border-orange-600/30"></div>
+        <div className="absolute top-34 left-10 h-20 w-20 border-t-2 border-l-2 border-orange-600/30"></div>
         <div className="absolute right-10 bottom-10 h-20 w-20 border-r-2 border-b-2 border-orange-600/30"></div>
       </section>
 

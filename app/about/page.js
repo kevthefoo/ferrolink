@@ -45,7 +45,7 @@ export default function About() {
     <div className="min-h-screen bg-slate-50">
       <Header currentPage="about" />
 
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl 2px-4 pt-32 pb-12 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <section className="mb-16 text-center">
           <h1 className="mb-6 text-4xl font-bold text-slate-900">

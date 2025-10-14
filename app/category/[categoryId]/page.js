@@ -74,7 +74,7 @@ export default async function CategoryPage({ params }) {
     return (
       <div className="min-h-screen bg-gray-900 text-white">
         <Header />
-        <div className="mx-auto max-w-7xl px-4 py-24 text-center sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-screen max-w-7xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
           <h1 className="mb-4 text-4xl font-bold">Category Not Found</h1>
           <p className="mb-8 text-gray-400">
             The category you&apos;re looking for doesn&apos;t exist.
@@ -97,7 +97,7 @@ export default async function CategoryPage({ params }) {
     <div className="min-h-screen bg-gray-900">
       <Header currentPage="products" />
 
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-32 pb-12 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <div className="mb-8 flex items-center text-sm text-gray-400">
           <Link href="/" className="transition-colors hover:text-orange-400">

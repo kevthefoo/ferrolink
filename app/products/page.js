@@ -53,7 +53,7 @@ export default function Products() {
     <div className="min-h-screen bg-gray-900">
       <Header currentPage="products" />
 
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pt-32 pb-12 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <h1 className="mb-4 text-4xl font-bold text-white">
             FEATURED PROFESSIONAL TOOLS
