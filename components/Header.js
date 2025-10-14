@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Header({ currentPage = "home" }) {
@@ -13,6 +13,20 @@ export default function Header({ currentPage = "home" }) {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
   return (
     <header className="fixed z-50000 w-full border-b border-gray-700 bg-gray-900 shadow-2xl">
       {/* <div className="metal-texture absolute inset-0 opacity-20"></div> */}
@@ -125,66 +139,83 @@ export default function Header({ currentPage = "home" }) {
 
         {/* Mobile Navigation Menu */}
         <div
-          className={`fixed left-0 z-50000 flex w-full flex-col justify-center overflow-hidden border-2 border-white bg-gray-800/95 backdrop-blur-sm transition-all duration-300 ease-in-out md:hidden ${
-            isMobileMenuOpen ? "h-screen opacity-100" : "max-h-0 opacity-0"
+          className={`absolute top-full left-0 w-full overflow-hidden bg-gray-900/95 backdrop-blur-sm transition-all duration-300 ease-in-out md:hidden ${
+            isMobileMenuOpen
+              ? "max-h-screen opacity-100 shadow-2xl"
+              : "max-h-0 opacity-0"
           }`}
         >
-          <div className="bg-gray-800/95 backdrop-blur-sm">
-            <nav className="space-y-4 px-4 py-6">
+          <div className="border-t border-gray-700">
+            <nav className="space-y-2 px-6 py-8">
               <Link
                 href="/"
                 onClick={closeMobileMenu}
-                className={`block text-base font-bold tracking-wide transition-colors select-none ${
+                className={`flex items-center space-x-4 rounded-xl px-4 py-4 text-lg font-bold transition-all duration-200 ${
                   currentPage === "home"
-                    ? "rounded-lg bg-orange-400/10 px-3 py-2 text-orange-400"
-                    : "rounded-lg px-3 py-2 text-gray-300 hover:bg-gray-700/50 hover:text-orange-400"
+                    ? "bg-orange-500/20 text-orange-400 shadow-lg"
+                    : "text-gray-300 hover:bg-gray-800/50 hover:text-orange-400"
                 }`}
               >
-                🏠 HOME
+                <span className="text-2xl">🏠</span>
+                <span>HOME</span>
               </Link>
+
               <Link
                 href="/products"
                 onClick={closeMobileMenu}
-                className={`block text-base font-bold tracking-wide transition-colors select-none ${
+                className={`flex items-center space-x-4 rounded-xl px-4 py-4 text-lg font-bold transition-all duration-200 ${
                   currentPage === "products"
-                    ? "rounded-lg bg-orange-400/10 px-3 py-2 text-orange-400"
-                    : "rounded-lg px-3 py-2 text-gray-300 hover:bg-gray-700/50 hover:text-orange-400"
+                    ? "bg-orange-500/20 text-orange-400 shadow-lg"
+                    : "text-gray-300 hover:bg-gray-800/50 hover:text-orange-400"
                 }`}
               >
-                🛠️ PRODUCTS
+                <span className="text-2xl">🛠️</span>
+                <span>PRODUCTS</span>
               </Link>
+
               <Link
                 href="/about"
                 onClick={closeMobileMenu}
-                className={`block text-base font-bold tracking-wide transition-colors select-none ${
+                className={`flex items-center space-x-4 rounded-xl px-4 py-4 text-lg font-bold transition-all duration-200 ${
                   currentPage === "about"
-                    ? "rounded-lg bg-orange-400/10 px-3 py-2 text-orange-400"
-                    : "rounded-lg px-3 py-2 text-gray-300 hover:bg-gray-700/50 hover:text-orange-400"
+                    ? "bg-orange-500/20 text-orange-400 shadow-lg"
+                    : "text-gray-300 hover:bg-gray-800/50 hover:text-orange-400"
                 }`}
               >
-                ℹ️ ABOUT
+                <span className="text-2xl">ℹ️</span>
+                <span>ABOUT</span>
               </Link>
+
               <Link
                 href="/contact"
                 onClick={closeMobileMenu}
-                className={`block text-base font-bold tracking-wide transition-colors select-none ${
+                className={`flex items-center space-x-4 rounded-xl px-4 py-4 text-lg font-bold transition-all duration-200 ${
                   currentPage === "contact"
-                    ? "rounded-lg bg-orange-400/10 px-3 py-2 text-orange-400"
-                    : "rounded-lg px-3 py-2 text-gray-300 hover:bg-gray-700/50 hover:text-orange-400"
+                    ? "bg-orange-500/20 text-orange-400 shadow-lg"
+                    : "text-gray-300 hover:bg-gray-800/50 hover:text-orange-400"
                 }`}
               >
-                📞 CONTACT
+                <span className="text-2xl">📞</span>
+                <span>CONTACT</span>
               </Link>
 
               {/* Mobile CTA Button */}
-              <div className="mt-4 border-t border-gray-600 pt-4">
+              <div className="mt-6 border-t border-gray-700 pt-6">
                 <Link
                   href="/contact"
                   onClick={closeMobileMenu}
-                  className="block w-full rounded-lg bg-gradient-to-r from-orange-600 to-red-600 px-6 py-3 text-center font-bold text-white shadow-lg transition-all duration-300 hover:from-orange-700 hover:to-red-700"
+                  className="flex w-full items-center justify-center space-x-3 rounded-xl bg-gradient-to-r from-orange-600 to-red-600 px-8 py-4 font-bold text-white shadow-xl transition-all duration-300 hover:from-orange-700 hover:to-red-700"
                 >
-                  GET QUOTE
+                  <span>💬</span>
+                  <span>GET QUOTE</span>
                 </Link>
+
+                <div className="mt-4 text-center">
+                  <div className="flex justify-center space-x-4 text-sm text-gray-400">
+                    <span>📞 +886 47766093</span>
+                    <span>📧 sales@ferrolink.co</span>
+                  </div>
+                </div>
               </div>
             </nav>
           </div>
