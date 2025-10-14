@@ -45,7 +45,7 @@ export default function About() {
     <div className="min-h-screen bg-slate-50">
       <Header currentPage="about" />
 
-      <div className="mx-auto max-w-7xl 2px-4 pt-32 pb-12 sm:px-6 lg:px-8">
+      <div className="2px-4 mx-auto max-w-7xl pt-32 pb-12 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <section className="mb-16 text-center">
           <h1 className="mb-6 text-4xl font-bold text-slate-900">
@@ -61,7 +61,8 @@ export default function About() {
         {/* Company Story */}
         <section className="mb-16">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-            <div>
+            {/* Our Story */}
+            <div className="px-8">
               <h2 className="mb-6 text-3xl font-bold text-slate-900">
                 Our Story
               </h2>
@@ -85,6 +86,8 @@ export default function About() {
                 by their need for tools that perform when it matters most.
               </p>
             </div>
+
+            {/* Company Milestones */}
             <div className="rounded-2xl bg-white p-8 shadow-lg">
               <h3 className="mb-6 text-2xl font-semibold text-slate-900">
                 Company Milestones
