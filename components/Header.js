@@ -139,7 +139,7 @@ export default function Header({ currentPage = "home" }) {
 
         {/* Mobile Navigation Menu */}
         <div
-          className={`absolute top-full left-0 w-full overflow-hidden bg-gray-900/95 backdrop-blur-sm transition-all duration-300 ease-in-out md:hidden ${
+          className={`absolute top-full left-0 h-screen w-full overflow-hidden bg-gray-900/95 backdrop-blur-sm transition-all duration-300 ease-in-out md:hidden ${
             isMobileMenuOpen
               ? "max-h-screen opacity-100 shadow-2xl"
               : "max-h-0 opacity-0"
