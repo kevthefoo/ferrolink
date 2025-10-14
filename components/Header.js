@@ -213,7 +213,7 @@ export default function Header({ currentPage = "home" }) {
                 <div className="mt-4 text-center">
                   <div className="flex justify-center space-x-4 text-sm text-gray-400">
                     <span>📞 +886 47766093</span>
-                    <span>📧 sales@ferrolink.co</span>
+                    <span>📧 support@ferrolink.io</span>
                   </div>
                 </div>
               </div>
