@@ -20,7 +20,7 @@ export const metadata = {
     siteName: "FerroLink Tools",
     images: [
       {
-        url: "/assets/products/og-image.jpg",
+        url: "/assets/materials/logo.png",
         width: 1200,
         height: 630,
         alt: "FerroLink Industrial Tools Collection",
@@ -34,7 +34,7 @@ export const metadata = {
     title: "FerroLink Tools - Premium Industrial Hand Tools & CNC Equipment",
     description:
       "Leading manufacturer of professional-grade hand tools, CNC equipment, hammers, axes, and garden tools.",
-    images: ["/assets/products/og-image.jpg"],
+    images: ["/assets/materials/logo.png"],
   },
   robots: {
     index: true,
